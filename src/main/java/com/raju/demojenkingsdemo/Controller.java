@@ -12,4 +12,9 @@ public class Controller {
     public String getUserDetails(){
         return "hello raju kumar ray";
     }
+    @GetMapping("/hi")
+    public String hello(){
+        return "hello raju kumar ray";
+    }
+
 }
