@@ -35,19 +35,3 @@ jobs:
 
       - name: Push Docker Image
         run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/myapp:latest
-
-      # ============================
-      #   Kubernetes Deployment
-      # ============================
-      - name: Setup Kubernetes
-        run: |
-          echo "${{ secrets.KUBE_CONFIG }}" | base64 -d > kubeconfig
-          export KUBECONFIG=kubeconfig
-
-      - name: Update K8s Deployment Image
-        run: |
-          kubectl set image deployment/myapp1-deployment myappdemo=${{ secrets.DOCKERHUB_USERNAME }}/myapp:latest -n default
-
-      - name: Verify Rollout
-        run: |
-          kubectl rollout status deployment/myapp1-deployment -n default
