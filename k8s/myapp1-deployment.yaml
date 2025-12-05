@@ -16,4 +16,4 @@ spec:
         - name: myappdemo
           image: IMAGE_PLACEHOLDER
           ports:
-            - containerPort: 8080
+            - containerPort: 8082
