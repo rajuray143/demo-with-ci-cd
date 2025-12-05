@@ -40,7 +40,7 @@ jobs:
       #      Load kubeconfig (ONLY ONE CORRECT)
       # ==========================================
       - name: File create k8s
-        run: echo "$KUBECONFIG_CONTENT" > kubeconfig-embedded.yaml
+        run: echo "$KUBECONFIG_CONTENT" | base64 --decode > kubeconfig-embedded.yaml
 
       - name: Debug kubeconfig
         run: |
