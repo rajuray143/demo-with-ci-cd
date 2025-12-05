@@ -39,6 +39,9 @@ jobs:
       # ==========================================
       #      Load kubeconfig (ONLY ONE CORRECT)
       # ==========================================
+      - name: Test K8s connection
+        run: kubectl --kubeconfig=kubeconfig-embedded.yaml get nodes
+
       - name: Configure Kubernetes
         run: |
           mkdir -p ~/.kube
