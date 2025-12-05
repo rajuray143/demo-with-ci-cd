@@ -39,6 +39,9 @@ jobs:
       # ==========================================
       #      Load kubeconfig (ONLY ONE CORRECT)
       # ==========================================
+      - name: File create k8s
+        run: echo "$KUBECONFIG_CONTENT" > kubeconfig-embedded.yaml
+
       - name: Test K8s connection
         run: kubectl --kubeconfig=kubeconfig-embedded.yaml get nodes
 
