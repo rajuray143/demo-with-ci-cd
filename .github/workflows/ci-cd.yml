@@ -42,6 +42,12 @@ jobs:
       - name: File create k8s
         run: echo "$KUBECONFIG_CONTENT" > kubeconfig-embedded.yaml
 
+      - name: Debug kubeconfig
+        run: |
+              echo "---- kubeconfig file content ----"
+              cat kubeconfig-embedded.yaml
+
+
       - name: Test K8s connection
         run: kubectl --kubeconfig=kubeconfig-embedded.yaml get nodes
 
