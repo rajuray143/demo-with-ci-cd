@@ -55,6 +55,7 @@ jobs:
       - name: Create kubeconfig file
         run: |
           echo "${{ secrets.KUBECONFIG_CONTENT }}" | base64 --decode > kubeconfig.yaml
+          | printf "%s" "${{ secrets.KUBECONFIG_CONTENT }}" | base64 --decode > kubeconfig.yaml
 
       # -------------------------------------------------------
       # Test connection
