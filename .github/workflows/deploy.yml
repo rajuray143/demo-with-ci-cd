@@ -52,28 +52,7 @@ jobs:
       # -------------------------------------------------------
       # Create kubeconfig from secret (FIXED COMMANDS HERE)
       # -------------------------------------------------------
-      - name: Create kubeconfig file
+      - name: deployment
         run: |
-          echo "${{ secrets.KUBE_CONFIG_BASE64 }}" | tr -d '\r' | base64 --decode > kubeconfig.yaml
-          # NOTE: The 'export KUBECONFIG' line here only works in this specific step's shell session.
-          # We explicitly use the --kubeconfig flag below for clarity and consistency.
-          kubectl --kubeconfig=kubeconfig.yaml get nodes
-
-      # -------------------------------------------------------
-      # Test connection (Already correct, explicitly uses the file)
-      # -------------------------------------------------------
-      - name: Test Kubernetes Connection
-        run: |
-          kubectl --kubeconfig=kubeconfig.yaml get nodes
-
-      # -------------------------------------------------------
-      # Update deployment image automatically (Already correct, explicitly uses the file)
-      # -------------------------------------------------------
-      - name: Deploy to Kubernetes
-        run: |
-          sed -i "s|IMAGE_PLACEHOLDER|rajuray143/myappdemo:latest|g" k8s/myapp1-deployment.yaml
-          kubectl --kubeconfig=kubeconfig.yaml apply -f k8s/myapp1-deployment.yaml
-
-
-
-
+          kubectl apply -f .rajuray143/myapp1-deployment.yaml
+           
