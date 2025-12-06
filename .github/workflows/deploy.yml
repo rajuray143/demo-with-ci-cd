@@ -54,5 +54,5 @@ jobs:
       # -------------------------------------------------------
       - name: deployment
         run: |
-          kubectl apply -f .k8s/myapp1-deployment.yaml
+          kubectl apply -f ./k8s/myapp1-deployment.yaml
            
