@@ -11,9 +11,15 @@ public class Controller {
     @GetMapping("/hello")
     public String getUserDetails(){
         return "hello raju kumar ray";
+
     }
     @GetMapping("/hi")
     public String hello(){
+        return "hello raju kumar ray";
+    }
+
+    @GetMapping("/hi")
+    public String hello2(){
         return "hello raju kumar ray";
     }
 
