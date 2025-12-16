@@ -18,7 +18,7 @@ public class Controller {
         return "hello raju kumar ray";
     }
 
-    @GetMapping("/hi")
+    @GetMapping("/hi2")
     public String hello2(){
         return "hello jenkins changes";
     }
