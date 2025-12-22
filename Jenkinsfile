@@ -51,18 +51,6 @@ pipeline {
             }
         }
 
-        stage('Deploy to Kubernetes') {
-    steps {
-        withCredentials([file(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
-            bat """
-            kubectl get nodes
-            kubectl apply -f k8s/myapp1-deployment.yaml
-            kubectl rollout status deployment myapp1-deployment
-            """
-        }
-    }
-}
-
     }
 
     post {
